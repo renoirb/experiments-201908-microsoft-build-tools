@@ -164,10 +164,6 @@
     //   "[^@]+@users\\.noreply\\.github\\.com",
     //   "travis@example\\.org"
     // ],
-    "allowedEmailRegExps": [
-      "[^@]+@users\\.noreply\\.github\\.com",
-      "travis@example\\.org"
-    ],
 
     /**
      * When Rush reports that the address is malformed, the notice can include an example
@@ -772,6 +768,36 @@
     {
       "packageName": "@microsoft/set-webpack-public-path-plugin",
       "projectFolder": "webpack/set-webpack-public-path-plugin",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@frontend-bindings/bundling-config",
+      "projectFolder": "renoirb/bundling-config",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@frontend-bindings/bundling-config-typescript",
+      "projectFolder": "renoirb/bundling-config-typescript",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@renoirb/date-epoch",
+      "projectFolder": "renoirb/date-epoch",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@renoirb/latency",
+      "projectFolder": "renoirb/latency",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@renoirb/sequence",
+      "projectFolder": "renoirb/sequence",
       "reviewCategory": "libraries",
       "shouldPublish": true
     }

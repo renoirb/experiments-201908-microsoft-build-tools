@@ -1,0 +1,27 @@
+{
+  "name": "@frontend-bindings/bundling-config-typescript",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "files": [
+    "src"
+  ],
+  "main": "src",
+  "scripts": {
+    "build": "",
+    "clean": ""
+  },
+  "dependencies": {
+    "ts-jest": "~22.4.6",
+    "tslint": "~5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-immutable": "^6.0.1",
+    "tslint-jest": "1.0.5",
+    "tslint-plugin-prettier": "^2.0.1"
+  },
+  "peerDependencies": {
+    "@frontend-bindings/bundling-config": "1.0.0",
+    "tslib": "^1.10.0",
+    "typescript": "~3.5.3"
+  }
+}

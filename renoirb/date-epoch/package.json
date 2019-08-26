@@ -1,0 +1,28 @@
+{
+  "name": "@renoirb/date-epoch",
+  "version": "1.1.0",
+  "description": "Date internal representation utilities using Numbers of seconds since January 1st 1970 (a.k.a. Epoch)",
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "main": "dist",
+  "module": "dist/index.esm.js",
+  "types": "dist",
+  "scripts": {
+    "build": "rush-run-all build:*",
+    "build:node": "rush-bili --target node --format cjs --file-name index.js --quiet",
+    "build:node-esm": "rush-bili --target node --format esm --file-name index.esm.js --quiet",
+    "build:browser": "rush-bili --target browser --format cjs --file-name browser.cjs.js --quiet",
+    "clean": "rush-rimraf dist .rpt2_cache *.*.log"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "~7.5.5"
+  },
+  "devDependencies": {
+    "core-js": "^3.1.4",
+    "@babel/preset-env": "^7.4.0",
+    "@frontend-bindings/bundling-config": "1.0.0",
+    "@frontend-bindings/bundling-config-typescript": "1.0.0"
+  }
+}

@@ -70,3 +70,8 @@ package-deps.json
 
 # OS X
 .DS_Store
+
+
+# Rollup Plugin TypeScript2 cache
+.rpt2_cache/
+

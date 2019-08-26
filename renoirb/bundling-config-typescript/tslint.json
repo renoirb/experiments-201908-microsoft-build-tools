@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json.schemastore.org/tslint",
+  "extends": [
+    "tslint:latest",
+    "tslint-immutable",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "interface-name": [true, "never-prefix"],
+    "label-position": true,
+    "max-classes-per-file": [false, 10, "exclude-class-expressions"],
+    "no-any": true,
+    "no-arg": true,
+    "no-construct": true,
+    "no-duplicate-variable": true,
+    "no-implicit-dependencies": [true, "dev"],
+    "no-invalid-this": true,
+    "no-misused-new": true,
+    "no-parameter-reassignment": true,
+    "no-shadowed-variable": true,
+    "no-string-throw": true,
+    "no-unused-expression": true,
+    "no-var-keyword": true,
+    "no-void-expression": [true, "ignore-arrow-function-shorthand"],
+    "prefer-for-of": true,
+    "prettier": true,
+    "triple-equals": [true, "allow-null-check", "allow-undefined-check"],
+    "typedef": [true, "call-signature"],
+    "unified-signatures": true
+  }
+}
