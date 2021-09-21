@@ -83,6 +83,7 @@ export class ChangeFiles {
   }
 
   public static getChangeComments(newChangeFilePaths: string[]): Map<string, string[]> {
+    // Get change comments as in common/changes/?
     const changes: Map<string, string[]> = new Map<string, string[]>();
 
     newChangeFilePaths.forEach((filePath) => {

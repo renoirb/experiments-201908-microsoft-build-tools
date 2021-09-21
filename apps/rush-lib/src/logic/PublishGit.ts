@@ -84,6 +84,7 @@ export class PublishGit {
     );
   }
 
+  // BEGIN
   public addTag(
     shouldExecute: boolean,
     packageName: string,
@@ -92,15 +93,20 @@ export class PublishGit {
   ): void {
     // Tagging only happens if we're publishing to real NPM and committing to git.
     const tagName: string = PublishUtilities.createTagname(packageName, packageVersion);
+    const tagFirstLine: string = `${packageName} v${packageVersion}`
+    let message = [tagFirstLine]
+    const changelogText = 'hi'
+    message.push(...['','----', changelogText, '----'])
     PublishUtilities.execCommand(!!this._targetBranch && shouldExecute, this._gitPath, [
       'tag',
       '-a',
       tagName,
       '-m',
-      `${packageName} v${packageVersion}`,
+      message.join('\n'),
       ...(commitId ? [commitId] : [])
     ]);
   }
+  // END
 
   public hasTag(packageConfig: RushConfigurationProject): boolean {
     const tagName: string = PublishUtilities.createTagname(

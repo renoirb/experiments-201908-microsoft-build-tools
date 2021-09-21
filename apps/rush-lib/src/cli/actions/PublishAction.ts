@@ -330,7 +330,7 @@ export class PublishAction extends BaseRushAction {
         this._setDependenciesBeforeCommit();
 
         // Create and push appropriate Git tags.
-        this._gitAddTags(publishGit, orderedChanges);
+        this._gitAddTags(publishGit, orderedChanges); // We have changes, yass!
         publishGit.push(tempBranchName, !this._ignoreGitHooksParameter.value);
 
         // Now merge to target branch.
@@ -352,6 +352,7 @@ export class PublishAction extends BaseRushAction {
     let updated: boolean = false;
 
     allPackages.forEach((packageConfig, packageName) => {
+      // BEGIN
       if (
         packageConfig.shouldPublish &&
         (!this._versionPolicy.value || this._versionPolicy.value === packageConfig.versionPolicyName)
@@ -371,6 +372,9 @@ export class PublishAction extends BaseRushAction {
             return;
           }
 
+          // To be sure, are we assuming here that there was no tags already, and that we are
+          // have access (somewhere?) to that package's changelog?
+
           git.addTag(!!this._publish.value, packageName, packageVersion, this._commitId.value);
           updated = true;
         };
@@ -387,6 +391,7 @@ export class PublishAction extends BaseRushAction {
           console.log(`Skip ${packageName}. Not updated.`);
         }
       }
+      // END
     });
 
     if (updated) {
@@ -394,6 +399,7 @@ export class PublishAction extends BaseRushAction {
     }
   }
 
+  // BEGIN
   private _gitAddTags(git: PublishGit, orderedChanges: IChangeInfo[]): void {
     for (const change of orderedChanges) {
       if (
@@ -401,6 +407,7 @@ export class PublishAction extends BaseRushAction {
         change.changeType > ChangeType.dependency &&
         this.rushConfiguration.projectsByName.get(change.packageName)!.shouldPublish
       ) {
+        // Add changelog line?
         git.addTag(
           !!this._publish.value && !this._registryUrl.value,
           change.packageName,
@@ -410,6 +417,7 @@ export class PublishAction extends BaseRushAction {
       }
     }
   }
+  // END
 
   private _npmPublish(packageName: string, packagePath: string): void {
     const env: { [key: string]: string | undefined } = PublishUtilities.getEnvArgs();
